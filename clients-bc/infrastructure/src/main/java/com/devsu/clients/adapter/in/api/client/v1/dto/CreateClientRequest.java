@@ -10,10 +10,10 @@ import java.time.OffsetDateTime;
 
 public record CreateClientRequest(
         @NotBlank String password,
-        @NotBlank ClientStatus status,
+        @NotNull ClientStatus status,
         @NotBlank String name,
         @NotBlank String lastName,
-        @NotNull  Gender gender,
+        @NotNull Gender gender,
         @NotNull  OffsetDateTime birthDate,
         @NotNull DocumentType documentType,
         @NotBlank String documentNumber,

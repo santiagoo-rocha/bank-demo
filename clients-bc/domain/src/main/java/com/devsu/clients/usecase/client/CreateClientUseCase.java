@@ -31,6 +31,7 @@ public class CreateClientUseCase implements UseCase<CreateClientCommand, Mono<Cl
                 .name(command.name())
                 .gender(command.gender())
                 .lastName(command.lastName())
+                .birthDate(command.birthDate())
                 .documentNumber(command.documentNumber())
                 .documentType(command.documentType())
                 .address(command.address())

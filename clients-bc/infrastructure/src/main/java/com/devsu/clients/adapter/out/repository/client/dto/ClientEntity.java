@@ -21,6 +21,7 @@ public class ClientEntity {
     private String name;
     @Column(nullable = false)
     private String lastName;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private OffsetDateTime birthDate;
     @Column(nullable = false)

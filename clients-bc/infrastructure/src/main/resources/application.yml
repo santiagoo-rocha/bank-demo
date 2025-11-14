@@ -2,9 +2,9 @@ spring:
   application:
     name: clients-bc
   datasource:
-    url: jdbc:postgresql://localhost:5432/clients
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/clients-bc
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:pass}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -15,6 +15,7 @@ spring:
         format_sql: true
   kafka:
     bootstrap-servers: localhost:9092
+    topic-name: clients
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

@@ -1,9 +1,13 @@
 package com.devsu.clients.config;
 
+import com.devsu.clients.port.publisher.ClientEventPublisherPort;
 import com.devsu.clients.port.repository.ClientRepositoryPort;
+import com.devsu.clients.usecase.account.CreateAccountUseCase;
 import com.devsu.clients.usecase.client.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class ClientConfiguration {
 
     @Bean
@@ -29,5 +33,13 @@ public class ClientConfiguration {
     @Bean
     public DeleteClientUseCase deleteClientUseCase(ClientRepositoryPort clientRepositoryPort) {
         return new DeleteClientUseCase(clientRepositoryPort);
+    }
+
+    @Bean
+    public CreateAccountUseCase createAccountUseCase(
+            ClientRepositoryPort clientRepositoryPort,
+            ClientEventPublisherPort clientEventPublisherPort
+    ) {
+        return new CreateAccountUseCase(clientRepositoryPort, clientEventPublisherPort);
     }
 }
