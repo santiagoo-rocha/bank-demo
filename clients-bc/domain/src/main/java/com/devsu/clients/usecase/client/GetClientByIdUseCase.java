@@ -16,6 +16,6 @@ public class GetClientByIdUseCase implements UseCase<GetClientByIdQuery, Mono<Cl
 
     @Override
     public Mono<Client> execute(GetClientByIdQuery command) {
-        return clientRepositoryPort.getClient(command.clientId());
+        return clientRepositoryPort.getClientById(command.clientId());
     }
 }

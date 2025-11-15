@@ -18,7 +18,7 @@ public class UpdateClientUseCase implements UseCase<UpdateClientCommand, Mono<Cl
 
     @Override
     public Mono<Client> execute(UpdateClientCommand command) {
-        return clientRepositoryPort.getClient(command.clientId())
+        return clientRepositoryPort.getClientById(command.clientId())
                 .map(it -> updateClient(command, it))
                 .flatMap(clientRepositoryPort::saveClient);
     }

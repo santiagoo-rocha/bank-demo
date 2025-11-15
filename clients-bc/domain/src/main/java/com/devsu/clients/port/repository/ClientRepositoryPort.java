@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 
 public interface ClientRepositoryPort {
     Mono<Page<Client>> getAllClients(GetClientsRequest getClientsRequest);
-    Mono<Client> getClient(String clientId);
+    Mono<Client> getClientById(String clientId);
     Mono<Client> saveClient(Client client);
     Mono<Void> deleteClient(String clientId);
 }

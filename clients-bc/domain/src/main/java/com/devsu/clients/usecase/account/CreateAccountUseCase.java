@@ -21,7 +21,7 @@ public class CreateAccountUseCase implements UseCase<CreateAccountCommand, Mono<
 
     @Override
     public Mono<String> execute(CreateAccountCommand command) {
-        return clientRepositoryPort.getClient(command.clientId())
+        return clientRepositoryPort.getClientById(command.clientId())
                 .map(_ -> buildEvent(command))
                 .flatMap(clientEventPublisherPort::publishAccountCreationRequested)
                 .map(AccountCreationRequested::accountId);

@@ -38,7 +38,7 @@ public class ClientRepositoryAdapter implements ClientRepositoryPort {
     }
 
     @Override
-    public Mono<Client> getClient(String clientId) {
+    public Mono<Client> getClientById(String clientId) {
         return Mono.fromCallable(() -> clientRepository.findById(clientId))
                 .subscribeOn(Schedulers.boundedElastic())
                 .flatMap(Mono::justOrEmpty)
